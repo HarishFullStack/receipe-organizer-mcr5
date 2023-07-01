@@ -55,6 +55,7 @@ p{
 .card{
   height: 150px;
   margin: 2rem;
+  box-shadow: 4px 4px 1px whitesmoke;
 }
 
 @keyframes App-logo-spin {
