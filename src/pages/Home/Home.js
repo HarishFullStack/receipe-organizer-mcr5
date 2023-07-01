@@ -55,26 +55,29 @@ export function Home(){
     }
 
     return (
-        <div>
+        <div className="row">
         {
             recipes.map((recipe) => {
             return(
                 <div key={recipe.id} className="card" style={{width: "18rem"}}>
-                <img src="..." className="card-img-top" alt="..."></img>
-                <div className="card-body">
-                    <h5 className="card-title">{recipe.recipeName}</h5>
-                    <div>
-                    <p className="card-text"><b>Cuisine Type: </b><span>{recipe.cuisineType}</span></p>
-                    <p className="card-text"><b>Ingredients: </b><span className='align-self-end' onClick={() => navigate(`/recipe/:${recipe.id}`)}>See Recipe <i className="fa fa-chevron-right" aria-hidden="true"></i></span></p>
-                    <p className="card-text"><b>Instructions: </b><span>See Recipe <i className="fa fa-chevron-right" aria-hidden="true"></i></span></p>
+                    {/* <img src="..." className="card-img-top" alt="..."></img> */}
+                    <div className="card-body">
+                        <h5 className="card-title">{recipe.recipeName}</h5>
+                        <div>
+                        <p className="card-text"><b>Cuisine Type: </b><span>{recipe.cuisineType}</span></p>
+                        <p className="card-text"><b>Ingredients: </b><span className='cursor-pointer align-self-end' onClick={() => navigate(`/recipe/${recipe.id}`)}>See Recipe <i className="fa fa-chevron-right" aria-hidden="true"></i></span></p>
+                        <p className="card-text"><b>Instructions: </b><span className='cursor-pointer align-self-end'>See Recipe <i className="fa fa-chevron-right" aria-hidden="true"></i></span></p>
+                        </div>
                     </div>
                 </div>
-            </div>
             )
             })
+            
         }
-        <div>
-            <i className="add-button fa fa-plus-circle fa-2x" aria-hidden="true" onClick={() => setShowAddRecipeModal(true)}></i>
+        <div className="card cursor-pointer" style={{width: "18rem"}} onClick={() => setShowAddRecipeModal(true)}>
+            <div className="card-body">
+                <i className="add-button fa fa-plus-circle fa-2x" style={{margin: "auto", opacity: "25%"}} aria-hidden="true" ></i>
+            </div>
         </div>
 
         <Modal show={showAddRecipeModal} onHide={() => setShowAddRecipeModal(false)}  size="lg">
