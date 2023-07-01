@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RecipeContext, RecipeProvider } from './context/RecipeContext';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+export {RecipeContext} 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RecipeProvider>
+      <Router>
+        <App />
+      </Router>
+    </RecipeProvider>
   </React.StrictMode>
 );
 
